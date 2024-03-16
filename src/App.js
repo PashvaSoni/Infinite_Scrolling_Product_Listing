@@ -18,7 +18,7 @@ function App() {
                     "mediaType": "image"
                 }
             ],
-            "productDescription": "this is best ring",
+            "productDescription": "",
             "productCreatedAt": "2024-01-21T14:23:53.465Z",
             "productLabour": 67,
             "productWeight": 45,
@@ -183,7 +183,7 @@ function App() {
         <div className="App">
             <h1>Sungold Jwellery</h1>
             <Stories stories={stories_data} />
-            <FeedComp data={photos} />
+            <FeedComp data={photos} masterData={static_data.masterData} />
             <div className="loading">
                 <img src={Loading} alt="" />
             </div>

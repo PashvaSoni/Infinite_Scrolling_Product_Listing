@@ -49,6 +49,24 @@ body {
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
 }
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
 
 .text-14-bold {
   font-size: 14px;
@@ -218,8 +236,8 @@ body {
   width: 100%;
   display: block;
   height: 100%;
-  object-fit: cover;
-}
+    object-fit: cover;
+  }
 
 .photos p {
   text-transform: capitalize;
@@ -241,11 +259,61 @@ body {
   justify-content: space-between;
 }
 
+.ant-modal-wrap{
+  backdrop-filter: blur(4px) !important;
+}
+
 @media only screen and (max-width: 767px) {
   .feed-post {
     width: 100vw;
     height: 80vh;
   }
+
+/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Product Type"; }
+	td:nth-of-type(2):before { content: "Product Metal Type"; }
+	td:nth-of-type(3):before { content: "Metal Rate"; }
+	td:nth-of-type(4):before { content: "Product Weight"; }
+	td:nth-of-type(5):before { content: "Product Labour"; }
+	td:nth-of-type(6):before { content: "Product Extra Charge"; }
+	td:nth-of-type(7):before { content: "Discount"; }
+	td:nth-of-type(8):before { content: "Total"; }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -253,6 +321,52 @@ body {
     max-width: 449px;
     height: 649px;
   }
+
+/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Product Type"; }
+	td:nth-of-type(2):before { content: "Product Metal Type"; }
+	td:nth-of-type(3):before { content: "Metal Rate"; }
+	td:nth-of-type(4):before { content: "Product Weight"; }
+	td:nth-of-type(5):before { content: "Product Labour"; }
+	td:nth-of-type(6):before { content: "Product Extra Charge"; }
+	td:nth-of-type(7):before { content: "Discount"; }
+	td:nth-of-type(8):before { content: "Total"; }
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -260,4 +374,49 @@ body {
     max-width: 449px;
     height: 649px;
   }
+  
+/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Product Type"; }
+	td:nth-of-type(2):before { content: "Product Metal Type"; }
+	td:nth-of-type(3):before { content: "Metal Rate"; }
+	td:nth-of-type(4):before { content: "Product Weight"; }
+	td:nth-of-type(5):before { content: "Product Labour"; }
+	td:nth-of-type(6):before { content: "Product Extra Charge"; }
+	td:nth-of-type(7):before { content: "Discount"; }
+	td:nth-of-type(8):before { content: "Total"; }
 }
