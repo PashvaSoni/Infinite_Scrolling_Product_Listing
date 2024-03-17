@@ -5,13 +5,16 @@ import { Modal, Badge } from 'antd'
 function round(n) {
     return n + (10 - n % 10);
 }
-function calc(gram, rate, labour, extra) {
+function calc(gram, rate, labour, extra, discount) {
     gram = parseFloat(gram);
     labour = parseFloat(labour);
     rate = parseFloat(rate);
     extra = parseFloat(extra);
+    discount=parseFloat(discount);
     let amount = ((gram * (rate + labour)) + extra);
-    return round(amount + amount * 0.03);
+    amount = round(amount + amount * 0.03);
+    amount = amount-((discount/100)*amount);
+    return round(amount);
 }
 
 function capitalize(str) {
@@ -28,17 +31,18 @@ function capitalize(str) {
     const capitalizedString = capitalizedWords.join(' ');
     return capitalizedString;
 }
-function GetDiscountFromProductType(productType="",discountObj)
-{
-    let mydiscount = discountObj.productTypeDiscounts.filter((item)=>{return item.productType.toLowerCase()===productType.toLowerCase()});
-    console.log(mydiscount)
-   return mydiscount.length>0?mydiscount[0].discount:discountObj.overallDiscount
-}
+// function GetDiscountFromProductType(productType="",discountObj)
+// {
+//     let mydiscount = discountObj.productTypeDiscounts.filter((item)=>{return item.productType.toLowerCase()===productType.toLowerCase()});
+//     console.log(mydiscount)
+//    return mydiscount.length>0?mydiscount[0].discount:discountObj.overallDiscount
+// }
 const FeedComp = (props) => {
     console.log("tesing ", props)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalData, setModalData] = useState({});
-    let masterData = props.masterData
+    let masterData = props.masterData;
+    let changingMasterData = props.changingMasterData;
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -57,10 +61,10 @@ const FeedComp = (props) => {
         <div className='feed-body'>
             <div className='feed-container'>
                 {mainData.map((item, index) => (
-                    <Badge.Ribbon color="red" style={{}} text={`Discount 10% !`}>
+                    <Badge.Ribbon color="red" style={{display:(changingMasterData?.discounts?.productTypeDiscounts[item.productType] || changingMasterData.discounts.overallDiscount)?"block":"none"}} text={`Discount ${changingMasterData?.discounts?.productTypeDiscounts[item.productType] || changingMasterData.discounts.overallDiscount} !`}>
                         <div className="feed-post" >
                             <div className="feed-post-header">
-                                <ProfilePic src={"https://picsum.photos/id/260/200/200"} size={63} username={"Bengals"}></ProfilePic>
+                                <ProfilePic src={masterData.productTypeImages[item.productType]}  size={63} username={"Bengals"}></ProfilePic>
                                 <h2>{capitalize(item.productName)}</h2>
                             </div>
                             <div className="feed-post-photos">
@@ -121,12 +125,12 @@ const FeedComp = (props) => {
                         <tr>
                             <td>{capitalize(modalData.productType)}</td>
                             <td>{capitalize(modalData.productMetalType)}</td>
-                            <td>{masterData.rate}</td>
+                            <td>{changingMasterData.rates[modalData.productMetalType]}</td>
                             <td>{modalData.productWeight}</td>
                             <td>{modalData.productLabour}</td>
                             <td>{modalData.productExtraCharges}</td>
-                            <td>{10}</td>
-                            <td>{calc(modalData.productWeight, masterData.rate, modalData.productLabour, modalData.productExtraCharges) - parseInt(GetDiscountFromProductType(modalData.productType,masterData.discounts) || 0)}</td>
+                            <td>{changingMasterData?.discounts?.productTypeDiscounts[modalData.productType] || changingMasterData.discounts.overallDiscount}</td>
+                            <td>{calc(modalData.productWeight, changingMasterData.rates[modalData.productMetalType], modalData.productLabour, modalData.productExtraCharges,(changingMasterData?.discounts?.productTypeDiscounts[modalData.productType] || changingMasterData.discounts.overallDiscount || 0))}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -5,6 +5,28 @@ import FeedComp from "./Components/FeedComp";
 import { static_data } from "./Components/static_data";
 import axios from 'axios';
 
+let changingMasterData = {
+    discounts: {
+        productTypeDiscounts: {
+            "rings": 10,
+            "tops": 5,
+        },
+        overallDiscount: 0
+    },
+    news: {
+        message: "Latest News !",
+        link: "",
+        images: []
+    },
+    rates: {
+        gold: 1000,
+        silver: 2000,
+        platinum: 3000,
+        imitation: 1,
+        alloy: 1
+    }
+}
+
 function App() {
     const stories_data = static_data.stories;
     const [photos, setPhotos] = useState([
@@ -80,9 +102,9 @@ function App() {
         //     }
         // })
         let data = {
-            data:{
-                body:{
-                    Items:[
+            data: {
+                body: {
+                    Items: [
                         {
                             "productType": "rings",
                             "productMetalType": "gold",
@@ -183,7 +205,7 @@ function App() {
         <div className="App">
             <h1>Sungold Jwellery</h1>
             <Stories stories={stories_data} />
-            <FeedComp data={photos} masterData={static_data.masterData} />
+            <FeedComp data={photos} masterData={static_data} changingMasterData={changingMasterData} />
             <div className="loading">
                 <img src={Loading} alt="" />
             </div>

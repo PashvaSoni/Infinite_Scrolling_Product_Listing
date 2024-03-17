@@ -1,77 +1,86 @@
 
 export const static_data = {
-  masterData:{
-    discounts:{
-      productTypeDiscounts:[
-        {
-          productType:'Rings',
-          discount:5
-        },
-        {
-          productType:'Bengals',
-          discount:10
-        }
-      ],
-      overallDiscount:0
-    },
-    news:{
-      message:"Latest News !",
-      link:"",
-      images:[]
-    },
-    rates:{
-      gold:1000,
-      silver:2000,
-      platinum:3000,
-      imitation:1,
-      alloy:1
-    }
+  productTypeImages: {
+    "bengals": "/images/bangles.png"
+    ,
+    "bracelets": "/images/bracelets.png"
+    ,
+    "earrings": "/images/earrings.png"
+    ,
+    "tops": "/images/earrings.png"
+    ,
+    "gold_coins": "/images/gold_coins.png"
+    ,
+    "mangalsutras": "/images/necklaces.png"
+    ,
+    "necklaces": "/images/nosepins.png"
+    ,
+    "nosepins": "/images/pendants.png"
+    ,
+    "pendants": "/images/pendants.png"
+    ,
+    "rings": "/images/rings.png"
+    ,
+    "silver_coins": "/images/silver_coins.png"
+    ,
+    "chains": "/images/chains.png"
   },
   stories: [
     {
-      username: "Bangles",
-      image: '/images/bangles.png',
+      "username": "Bangles",
+      "value": "bangles",
+      "image": "/images/bangles.png"
     },
     {
-      username: "Bracelets",
-      image: '/images/bracelets.png',
+      "username": "Bracelets",
+      "value": "bracelets",
+      "image": "/images/bracelets.png"
     },
     {
-      username: "Earrings",
-      image: '/images/earrings.png',
+      "username": "Earrings",
+      "value": "earrings",
+      "image": "/images/earrings.png"
     },
     {
-      username: "Gold Coins",
-      image: '/images/gold_coins.png',
+      "username": "Gold Coins",
+      "value": "gold_coins",
+      "image": "/images/gold_coins.png"
     },
     {
-      username: "Mangalsutras",
-      image: '/images/necklaces.png',
+      "username": "Mangalsutras",
+      "value": "mangalsutras",
+      "image": "/images/necklaces.png"
     },
     {
-      username: "Necklaces",
-      image: '/images/nosepins.png',
+      "username": "Necklaces",
+      "value": "necklaces",
+      "image": "/images/nosepins.png"
     },
     {
-      username: "Nosepins",
-      image: '/images/pendants.png',
+      "username": "Nosepins",
+      "value": "nosepins",
+      "image": "/images/pendants.png"
     },
     {
-      username: "Pendants",
-      image: '/images/pendants.png',
+      "username": "Pendants",
+      "value": "pendants",
+      "image": "/images/pendants.png"
     },
     {
-      username: "Rings",
-      image: '/images/rings.png',
+      "username": "Rings",
+      "value": "rings",
+      "image": "/images/rings.png"
     },
     {
-      username: "Silver Coins",
-      image: "/images/silver_coins.png",
+      "username": "Silver Coins",
+      "value": "silver_coins",
+      "image": "/images/silver_coins.png"
     },
     {
-      username: "Chains",
-      image: "/images/chains.png",
-    },
-  ],
+      "username": "Chains",
+      "value": "chains",
+      "image": "/images/chains.png"
+    }
+  ]
 
 };
