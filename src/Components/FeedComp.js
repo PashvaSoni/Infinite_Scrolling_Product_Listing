@@ -93,12 +93,13 @@ const FeedComp = (props) => {
                                     <button onClick={() => { setModalData({ ...item }); showModal(); }} style={{ backgroundColor: 'transparent', border: '3px solid white', padding: '6px', margin: '6px', cursor: 'pointer', color: 'white', fontSize: '21px' }}>View Details</button>
                                 </div>
                                 <div style={{ display: 'flex', gap: '1rem' }}>
-                                    <span>
+                                    {/* <span>
                                         <img src="images/like_icon.svg" width={"35px"}></img>
                                     </span>
                                     <span>
                                         <img src="images/share_icon.svg" width={"35px"}></img>
-                                    </span>
+                                    </span> */}
+                                    <button onClick={() => { setModalData({ ...item }); showModal(); }} style={{ backgroundColor: 'transparent', border: '3px solid white', padding: '6px', margin: '6px', cursor: 'pointer', color: 'white', fontSize: '21px' }}>Enquiry</button>
                                 </div>
                             </div>
                         </div>
